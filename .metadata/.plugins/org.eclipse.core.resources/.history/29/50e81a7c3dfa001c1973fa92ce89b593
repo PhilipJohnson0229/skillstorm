@@ -1,0 +1,28 @@
+package com.skillstorm.javabeans;
+
+public class Expense {
+
+	private enum reimbursementStatus{Pending, Approved, Denied};
+	
+	private reimbursementStatus status;
+	
+	public Expense() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Expense(reimbursementStatus status) {
+		super();
+		this.status = status;
+	}
+
+	public reimbursementStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(reimbursementStatus status) {
+		this.status = status;
+	}
+	
+	
+}

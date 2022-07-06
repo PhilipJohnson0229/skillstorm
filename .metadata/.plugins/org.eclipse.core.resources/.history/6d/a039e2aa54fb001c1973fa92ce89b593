@@ -1,0 +1,66 @@
+package jdbc;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.sql.SQLException;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.skillstorm.ExpenseDao;
+import com.skillstorm.javabeans.Employee;
+
+public class EmployeeDaoTest {
+
+	static ExpenseDao expenceDow;
+	
+	@BeforeClass
+	public static void setUp() 
+	{
+		try {
+			expenceDow = new ExpenseDao();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void findAll() 
+	{
+		try {
+			Set<Employee> employees = expenceDow.findAll();
+			for(Employee row: employees) 
+			{
+				System.out.println("-Employee ID: " + row.getId() + ", " 
+						+ row.getName() + ": Reason: " + row.getReason());
+			}
+			
+			assertTrue(employees.size() > 0);
+		}
+		catch(SQLException e) 
+		{
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@Test
+	public void create() 
+	{
+		try {		
+			boolean success = expenceDow.createEmployeeRecord(new Employee("jordan"));
+			assertEquals(true, success);
+		}
+		catch(SQLException e) 
+		{
+			e.printStackTrace();
+			fail();
+		}
+		
+	}
+}

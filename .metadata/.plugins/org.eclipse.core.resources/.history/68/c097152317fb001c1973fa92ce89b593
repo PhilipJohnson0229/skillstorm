@@ -1,0 +1,38 @@
+package com.skillstorm;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Set;
+
+import com.skillstorm.javabeans.Employee;
+
+public class ExpenseDao {
+
+	//we need out CRUD statements
+	public boolean createEmployeeRecord(Employee employee)
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	//set is good so we dont have duplicates
+	public Set<Employee> findAll()
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public Employee findById(int id) 
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public boolean deleteRecord(int id)
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public boolean UpdateRecord(Employee employee) 
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.skillstorm.javabeans;
+
+public class Employee {
+
+}

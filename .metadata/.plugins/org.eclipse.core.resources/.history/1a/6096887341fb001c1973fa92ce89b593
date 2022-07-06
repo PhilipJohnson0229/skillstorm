@@ -1,0 +1,31 @@
+package jdbc;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.sql.SQLException;
+
+import org.junit.Test;
+
+import com.skillstorm.ExpenseDao;
+import com.skillstorm.javabeans.Employee;
+
+public class EmployeeDaoTest {
+
+	@Test
+	public void create() 
+	{
+		try {
+			ExpenseDao employeeDao = new ExpenseDao();
+		
+			boolean success = employeeDao.createEmployeeRecord(new Employee("jeffrey"));
+			assertEquals(true, success);
+		}
+		catch(SQLException e) 
+		{
+			e.printStackTrace();
+			fail();
+		}
+		
+	}
+}

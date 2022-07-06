@@ -1,0 +1,8 @@
+package com.skillstorm.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+@WebServlet(urlPatterns = "/my-servlet")
+public class ExpenseServlet extends HttpServlet {
+
+}

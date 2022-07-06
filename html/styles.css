@@ -1,0 +1,27 @@
+/*external file for styling*/
+
+li
+{
+    background-color: darkcyan;
+    color: white;
+}
+
+/*class selector*/
+.thetable
+{
+    background-color: darkgreen;
+    color: white;
+}
+
+.thedata
+{
+    background-color: teal;
+    color: white;
+}
+
+/*id selector which is good for ONE element*/
+#stuff
+{
+    color: wheat;
+}
+

@@ -1,0 +1,21 @@
+package com.skillstorm;
+
+import java.util.Set;
+
+import com.skillstorm.javabeans.Employee;
+
+public class ExpenseDao {
+
+	//we need out CRUD statements
+	public boolean createEmployeeRecord(Employee employee)
+	{
+		return false;
+	}
+	
+	//set is good so we dont have duplicates
+	public Set<Employee> findAll()
+	{
+		
+	}
+	
+}

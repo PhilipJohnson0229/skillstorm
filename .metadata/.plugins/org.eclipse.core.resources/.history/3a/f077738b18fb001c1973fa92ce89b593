@@ -1,0 +1,69 @@
+package com.skillstorm;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Properties;
+import java.util.Set;
+
+import com.skillstorm.javabeans.Employee;
+
+public class ExpenseDao {
+	
+	//instance variables are NOT thread safe
+	private Connection connection;
+	
+	
+	public ExpenseDao(Connection connection) throws SQLException {
+		
+		Properties props = new Properties();
+		
+		InputStream in = ClassLoader.getSystemResourceAsStream("application.properties");
+		
+		try {
+			props.load(in);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String url = props.getProperty("database.url");
+		String username = props.getProperty("database.username");
+		String password = props.getProperty("database.password");
+		
+		this.connection = DriverManager.getConnection(url, username, password);
+	}
+
+	//we need out CRUD statements
+	public boolean createEmployeeRecord(Employee employee)
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	//set is good so we dont have duplicates
+	public Set<Employee> findAll()
+	{
+		//all this exceptions says is our methods not ready to be used
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public Employee findById(int id) 
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public boolean deleteRecord(int id)
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+	public boolean UpdateRecord(Employee employee) 
+	{
+		throw new UnsupportedOperationException("still working on it");
+	}
+	
+}
