@@ -1,5 +1,0 @@
-package com.skillstorm.servlet;
-
-public class ExpenseServlet extends HttpServlet {
-
-}

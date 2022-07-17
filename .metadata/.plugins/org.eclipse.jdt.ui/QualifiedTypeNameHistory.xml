@@ -27,12 +27,19 @@
     <fullyQualifiedTypeName name="org.junit.Ignore"/>
     <fullyQualifiedTypeName name="com.skillstorm.javabeans.Employee"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.concurrent.CopyOnWriteArrayList"/>
     <fullyQualifiedTypeName name="com.skillstorm.Data.EmployeeDao"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="com.skillstorm.model.Employee"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="org.omg.CORBA.Request"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.skillstorm.servlet.EmployeeHandler"/>
+    <fullyQualifiedTypeName name="com.skillstorm.servlet.ReimbursementStatus"/>
+    <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 </qualifiedTypeNameHistroy>
