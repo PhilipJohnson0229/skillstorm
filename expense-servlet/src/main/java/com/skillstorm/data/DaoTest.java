@@ -1,0 +1,21 @@
+package com.skillstorm.data;
+
+import java.sql.SQLException;
+
+public class DaoTest {
+public static void main(String[] args) throws SQLException {
+	EmployeeDao eDao = null;
+	try {
+		eDao = new EmployeeDao();
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	System.out.println(eDao.findAll());
+}
+}

@@ -6,11 +6,14 @@ import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.skillstorm.data.EmployeeDao;
 import com.skillstorm.model.Employee;
 
@@ -21,13 +24,23 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 
 	//INSTANCE VARIABLES ARE NOT THREAD SAFE
 	//so we need to make sure what it's DOING IS thread safe
-	private EmployeeDao employeeDao = new EmployeeDao();
+	private EmployeeDao employeeDao;
 	
+	public ExpenseServlet() throws SQLException
+	{
+		super();
+	}
 	//HTTP request
 	//the servelt class gives us CRUD methods
 	//GET / my-servlet(url) / java version
 	@Override
 	public void init() throws ServletException {
+		try {
+			employeeDao = new EmployeeDao();
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Hello, this is the init() method");
 	}
 	
@@ -40,9 +53,15 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		ObjectMapper objectMapper = new ObjectMapper();
+		ObjectWriter ow = objectMapper.writer();
 		String json = "";
 		//this is how we will gather our json objects
-		json = objectMapper.writeValueAsString(employeeDao.findAll());
+		try {
+			json = ow.writeValueAsString(employeeDao.findAll());
+		} catch (JsonProcessingException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		resp.getWriter().print(json);
 		
@@ -101,7 +120,12 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		
 		employeeDao.add(employee);
 		
-		System.out.println("Employees: " + employeeDao.findAll());
+		try {
+			System.out.println("Employees: " + employeeDao.findAll());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//redirect to another page
 		//resp.sendRedirect("response.html");
 		//req.getRequestDispatcher("response.html").forward(req, resp); // writes to the response body
