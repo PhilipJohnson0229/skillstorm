@@ -52,6 +52,7 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
 		ObjectMapper objectMapper = new ObjectMapper();
 		ObjectWriter ow = objectMapper.writer();
 		String json = "";
@@ -104,8 +105,8 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
-		
+		//this helps with communicating to react
+		resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
 		//FINAL CODE
 		//print the input from the form with the postTest param
 		//System.out.println(req.getParameter("postTest"));

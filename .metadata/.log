@@ -3119,3 +3119,114 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2022-07-17 15:34:40.072
 !MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:36:45.666
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:36:45.676
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@281ce8e1[org.springframework.tooling.boot.ls:1.36.0.202206171137(id=567)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:36:45.684
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:36:45.940
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.181
+!MESSAGE Boot LS startup time from start to initialized: 18465ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.358
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.azORITUSisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.362
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.365
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.366
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.366
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.367
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.azORITUS => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.380
+!MESSAGE classpath=30 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.382
+!MESSAGE buffering callback sts4.classpath.azORITUS expense-servlet false 30
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.383
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.387
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.389
+!MESSAGE buffering callback sts4.classpath.azORITUS Collections false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.390
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.393
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.395
+!MESSAGE buffering callback sts4.classpath.azORITUS DesignPatterns false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.397
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.400
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.402
+!MESSAGE buffering callback sts4.classpath.azORITUS Java Programming false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.403
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.407
+!MESSAGE classpath=28 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.410
+!MESSAGE buffering callback sts4.classpath.azORITUS ReimbursementSystem false 28
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.410
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.414
+!MESSAGE classpath=26 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.417
+!MESSAGE buffering callback sts4.classpath.azORITUS cancer-detection false 26
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.418
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.422
+!MESSAGE classpath=19 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.424
+!MESSAGE buffering callback sts4.classpath.azORITUS hello-java false 19
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.425
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.429
+!MESSAGE classpath=30 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.432
+!MESSAGE buffering callback sts4.classpath.azORITUS jdbc false 30
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:04.433
+!MESSAGE executing callback sts4.classpath.azORITUS 8 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-07-17 23:37:05.542
+!MESSAGE executing callback sts4.classpath.azORITUS SUCCESS [done]
+
+!ENTRY org.eclipse.ui 2 2 2022-07-18 00:23:53.563
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
