@@ -46,7 +46,7 @@ public class EmployeeDao {
 	// CRUD
 	// Domain object - POJO/JavaBean that represents data for our app
 	public Employee create(Employee employee) throws SQLException {
-		String sql = "insert into Artist(Name) values (?)";				// flag: please return my keys
+		String sql = "insert into expense(Name) values (?)";				// flag: please return my keys
 		PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		statement.setString(1, employee.getName());
 		statement.executeUpdate();

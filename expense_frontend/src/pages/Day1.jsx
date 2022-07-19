@@ -14,8 +14,8 @@ export const Day1 = () => {
         // They do NOT render to the webpage
         <>
             <button onClick={() => setShouldRender(!shouldRender)}>Toggle Components</button>
-            <h1>Hello React!</h1>
-            <h2>Hello Again!</h2>
+            <h1>Reimbursement Status</h1>
+           
             <EmployeeList />
         </>
     );
