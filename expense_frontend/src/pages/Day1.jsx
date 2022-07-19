@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ClassComponent } from "../components/ClassComponent";
+import { EmployeeList } from "../components/Employee";
 import { FunctionComponent } from "../components/FunctionComponent";
 import { SoftwareDeveloperList } from "../components/SoftwareDeveloper";
 
@@ -15,14 +16,7 @@ export const Day1 = () => {
             <button onClick={() => setShouldRender(!shouldRender)}>Toggle Components</button>
             <h1>Hello React!</h1>
             <h2>Hello Again!</h2>
-            <SoftwareDeveloperList />
-            
-            {/* Calling our ClassComponent this way will auto call render() on our behalf */}
-            {/* If shouldRender is true, render ClassComponent. If false, return false. False does NOT render */}
-            {/* This is known as "conditional rendering" */}
-            {shouldRender && <ClassComponent />}
-            {shouldRender ? <FunctionComponent /> : null}
-            {/* <ClassComponent /> */}
+            <EmployeeList />
         </>
     );
 

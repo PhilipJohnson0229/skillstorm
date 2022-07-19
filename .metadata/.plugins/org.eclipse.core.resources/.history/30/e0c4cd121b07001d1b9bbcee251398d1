@@ -56,9 +56,8 @@ public class EmployeeDao {
 		rs.next();
 		int generatedId = rs.getInt(1);
 		employee.setId(generatedId);
-		System.out.println("Employee created");
-		return employee;
 		
+		return employee;
 	}
 
 	public Set<Employee> findAll() throws SQLException {

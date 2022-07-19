@@ -19,8 +19,6 @@ import com.skillstorm.model.Employee;
 
 
 //controller glues model to the view
-
-
 @WebServlet(urlPatterns = "/my-servlet")
 public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 
@@ -75,7 +73,7 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	//POST 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("calling post method");
+		
 		//this helps with communicating to react
 		resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
 		//FINAL CODE

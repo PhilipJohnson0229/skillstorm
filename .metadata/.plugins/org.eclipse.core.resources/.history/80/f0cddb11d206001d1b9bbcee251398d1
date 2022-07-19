@@ -19,8 +19,6 @@ import com.skillstorm.model.Employee;
 
 
 //controller glues model to the view
-
-
 @WebServlet(urlPatterns = "/my-servlet")
 public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 
@@ -69,13 +67,44 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		resp.getWriter().print(json);
 		
 		resp.setContentType("application/json");
+		/*FINAL CODE
+		//the firsgt time the user gets on we will store a cookie to maintain state
+		Cookie cookie = new Cookie("dan","pickles");
+		//adding the cookie to the response
+		resp.addCookie(cookie);
 		
+		if(req.getSession().getAttribute("addedItem") != null) 
+		{
+			
+			System.out.println(req.getSession().getAttribute("addedItem"));
+		}
+		
+		String param = req.getParameter("id"); //query parameter
+		
+		
+		if(param != null) 
+		{
+			int id = Integer.parseInt(param);
+			System.out.println(id);
+			//take this and add it to my JDBC query
+			
+			
+			json = objectMapper.writeValueAsString(expenseDao.findAll().get(id));
+		}else
+		{
+			
+			//this is how we will gather our json objects
+			json = objectMapper.writeValueAsString(expenseDao.findAll());
+		}
+		
+		//we will have the objectMapper print out the JSONobjects into java string objects
+		resp.getWriter().println(json);*/
 	}
 	
 	//POST 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("calling post method");
+		
 		//this helps with communicating to react
 		resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
 		//FINAL CODE
@@ -89,13 +118,8 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		
 		//this takes the input stream and parses the json into a java object
 		Employee employee = objectMapper.readValue(requestBody, Employee.class); //takes inputstream and converts to object
-		System.out.println(employee.getName() + " has been created");
-		try {
-			employeeDao.create(employee);
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		
+		employeeDao.add(employee);
 		
 		try {
 			System.out.println("Employees: " + employeeDao.findAll());

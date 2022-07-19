@@ -19,8 +19,6 @@ import com.skillstorm.model.Employee;
 
 
 //controller glues model to the view
-
-
 @WebServlet(urlPatterns = "/my-servlet")
 public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 
