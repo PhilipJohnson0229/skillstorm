@@ -3,6 +3,8 @@ import ThemeContext from '../../contexts/ThemeContext';
 import axios from 'axios';
 //import { SoftwareDeveloper } from './SoftwareDeveloper';
 import { Employee } from './Employee';
+import {Button, Container, Table, OverlayTrigger, Popover} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 //we will make an api call to our backend
 export const EmployeeList = () => {
@@ -56,15 +58,26 @@ export const EmployeeList = () => {
             console.error(err);
         }
     }
+    
+    const popover = (
+        <Popover id="popover-basic">
+          <Popover.Header as="h3">Popover right</Popover.Header>
+          <Popover.Body>
+            Are you <strong>sure</strong> you want to submit this record?
+          </Popover.Body>
+        </Popover>
+    );
 
     return (
+        <Container>
         <form onSubmit={handleSubmit}>
-            <table style={theme}>
+            <Table striped bordered hover size="sm" variant='dark'>
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Reason</th>
-                        <th>Notes</th>
+                        <td>Name</td>
+                        <td>Reason</td>
+                        <td>Notes</td>
+                        <td>Action</td>
                         {/*when were ready to add the response code column we start here*/}
                     </tr>
                 </thead>
@@ -83,11 +96,10 @@ export const EmployeeList = () => {
                             // Always use the primary id from the database since it's unique
                             <>
                             {/*<Employee key={emp.id} emp={emp} employees={employees} setEmployees={setEmployees} />*/}
-                            <tr key = {emp.id}>
-                                <td>{emp.name}</td>
-                                <td>{emp.reason}</td>
-                                <td>{emp.notes}</td>
-                            </tr>
+                           
+                            
+                            <Employee key={emp.id} emp={emp} employees={employees} setEmployees={setEmployees} />
+                        
                             </>
 
                         );
@@ -109,11 +121,19 @@ export const EmployeeList = () => {
                                 {/* When input updates, my ref will also update since it "points" to that input */}
                             <td><input name="reason" ref={reasonRef} placeholder='Please enter reason'/></td>
                             <td><input name="notes" ref={notesRef} placeholder='Please enter any notes'/></td>
-                            <button>Create new Entry!</button>
+                            <td>
+                            <OverlayTrigger trigger="hover" placement="top" overlay={popover}>
+                            <Button type='submit' variant='primary'>Create Entry</Button>
+                            </OverlayTrigger>
+                            </td>
+                           
+                            
                     </tr>
                     {/* </form> */}
                 </tbody>
-            </table>
+            </Table>
         </form>
+        </Container>
     );
+    
 }

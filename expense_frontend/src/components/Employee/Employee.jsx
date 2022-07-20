@@ -1,4 +1,6 @@
 import axios from "axios";
+import {Button, OverlayTrigger, Popover} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 // props is an object containing all of the properties passed down by the parent
 // Because it's an object, I can destructure out what I want
 export const Employee = ({emp, setEmployees, employees}) => {
@@ -14,14 +16,28 @@ export const Employee = ({emp, setEmployees, employees}) => {
         }
     }
 
+    const popover = (
+        <Popover id="popover-basic">
+          <Popover.Header as="h3">Popover right</Popover.Header>
+          <Popover.Body>
+            are you sure you want to delete {emp.name}?
+          </Popover.Body>
+        </Popover>
+      );
+
     return (
         // Give the text the color of blue
         // inline styles
-        <tr /*style={{color: dev.salary < 100000 ? 'red' : 'blue' }}*/>
+        <tr>
             <td>{emp.name}</td>
             <td>{emp.reason}</td>
             <td>{emp.notes}</td>
-            <button onClick={handleDelete}>Delete</button>
+            <td> 
+            <OverlayTrigger trigger="hover" placement="top" overlay={popover}>
+            <Button variant="warning" onClick={handleDelete}>Delete</Button>
+            </OverlayTrigger>
+            </td>
+           
         </tr>
     );
 }

@@ -1,4 +1,7 @@
 import axios from "axios";
+import {Button, Container, Row, Column, Table, Col} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 // props is an object containing all of the properties passed down by the parent
 // Because it's an object, I can destructure out what I want
 export const SoftwareDeveloper = ({dev, color, setDevs, developers}) => {
@@ -17,12 +20,12 @@ export const SoftwareDeveloper = ({dev, color, setDevs, developers}) => {
     return (
         // Give the text the color of blue
         // inline styles
-        <tr style={{color: dev.salary < 100000 ? 'red' : 'blue' }}>
-            <td>{dev.name}</td>
-            <td>{dev.title}</td>
-            <td>{dev.salary}</td>
-            <button onClick={handleDelete}>Delete</button>
-        </tr>
+        <Row style={{color: dev.salary < 100000 ? 'red' : 'blue' }}>
+            <Col>{dev.name}</Col>
+            <Col>{dev.title}</Col>
+            <Col>{dev.salary}</Col>
+            <Button onClick={handleDelete}>Delete</Button>
+        </Row>
     );
 }
 // npm i styled-components
