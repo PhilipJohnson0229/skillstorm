@@ -37,7 +37,7 @@ export const EmployeeList = () => {
     
     const handleSubmit = async (event) => {
         try {
-            event.preventDefault(); // Prevent the default HTML form submission (AKA Reload the page)
+            //event.preventDefault(); // Prevent the default HTML form submission (AKA Reload the page)
             // 1. Extract the data
             // 2. Send out a POST request
             // 3. When you receive the newly created dev id, add it to the dev array
@@ -71,7 +71,7 @@ export const EmployeeList = () => {
     return (
         <Container>
         <form onSubmit={handleSubmit}>
-            <Table striped bordered hover size="sm" variant='dark'>
+            <Table striped bordered hover size="sm" variant='dark' responsive>
                 <thead>
                     <tr>
                         <td>Name</td>
@@ -115,15 +115,11 @@ export const EmployeeList = () => {
 
                             {/* This is a "controlled component". React is in charge of it */}
                             <td><input name="name" value={name} onChange={(event) => setName(event.target.value)} placeholder='Please enter Name'/></td>
-                            
-                            {/* This is an "uncontrolled component". React doesn't manage it, it just uses
-                                the native DOM to manage state */}
-                                {/* When input updates, my ref will also update since it "points" to that input */}
                             <td><input name="reason" ref={reasonRef} placeholder='Please enter reason'/></td>
                             <td><input name="notes" ref={notesRef} placeholder='Please enter any notes'/></td>
                             <td>
                             <OverlayTrigger trigger="hover" placement="top" overlay={popover}>
-                            <Button type='submit' variant='primary'>Create Entry</Button>
+                            <Button type='submit' variant='secondary'>Create Entry</Button>
                             </OverlayTrigger>
                             </td>
                            

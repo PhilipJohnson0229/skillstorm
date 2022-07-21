@@ -92,17 +92,13 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		System.out.println(employee.getName() + " has been created");
 		try {
 			employeeDao.create(employee);
+			System.out.println("Employees: " + employeeDao.findAll());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		try {
-			System.out.println("Employees: " + employeeDao.findAll());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		//redirect to another page
 		//resp.sendRedirect("response.html");
 		//req.getRequestDispatcher("response.html").forward(req, resp); // writes to the response body

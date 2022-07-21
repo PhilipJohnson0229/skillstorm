@@ -29,6 +29,13 @@ public class Employee implements Serializable{
 		this.name = name;
 	}
 	
+	public Employee(String name, String reason, String notes) {
+		super();
+		this.name = name;
+		this.reason = reason;
+		this.notes = notes;
+	}
+	
 	public Employee(String name) {
 		super();
 		this.name = name;
