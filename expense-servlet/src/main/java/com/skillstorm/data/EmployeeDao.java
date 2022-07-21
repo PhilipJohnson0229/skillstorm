@@ -32,25 +32,19 @@ public class EmployeeDao {
 		this.connection = DriverManager.getConnection(url, username, password);
 		System.out.println("connection made to database");
 	}
-
-	/*public List<Employee> findAll(){
-		return data;
-	}*/
 	
-	public void add(Employee employee) {
-		data.add(employee);
-	}
 	private Connection connection;
 
 	
 	// CRUD
 	// Domain object - POJO/JavaBean that represents data for our app
 	public Employee create(Employee employee) throws SQLException {
-		String sql = "insert into expense(name, reason, notes) values (?,?,?)";				// flag: please return my keys
+		String sql = "insert into expense(name, reason, notes, StatusId) values (?,?,?,0)";				// flag: please return my keys
 		PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		statement.setString(1, employee.getName());
 		statement.setString(2, employee.getReason());
 		statement.setString(3, employee.getNotes());
+		
 		statement.executeUpdate();
 		
 		// grab the id - ResultSet = statement.getGeneratedKeys()
@@ -66,7 +60,7 @@ public class EmployeeDao {
 	public Set<Employee> findAll() throws SQLException {
 		// ResultSet
 		Set<Employee> employees = new HashSet<Employee>(); // store the artists to be returned at the end
-		String sql = "select employeeId, name, reason, notes from expense";
+		String sql = "select employeeId, name, reason, notes, StatusId from expense";
 
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
@@ -78,51 +72,25 @@ public class EmployeeDao {
 			String name = resultSet.getString("name");
 			String reason = resultSet.getString("reason");
 			String notes = resultSet.getString("notes");
+			int statusId = resultSet.getInt("StatusId");
 
 			// store it in the Java object
 			row.setId(id);
 			row.setName(name);
 			row.setNotes(notes);
 			row.setReason(reason);
-
+			row.setStatusId(statusId);	
+			
 			employees.add(row);
 		} //
 		return employees;
 	}
-
-	public Employee findById(int id) throws SQLException {
-		String sql = "select ArtistId, Name from Artist where ArtistId = ?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, id);
-		ResultSet rs = statement.executeQuery();
-		if (rs.next()) {
-			return new Employee(rs.getInt("ArtistId"), rs.getString("Name"));
-		} else {
-			return null;
-		}
-	}
-
-	/**
-	 * Expects the artist.id property to be filled in, and we'll update every other
-	 * property to the new values you've assigned.
-	 * 
-	 * @param employee
-	 * @return
-	 * @throws SQLException
-	 */
+	
 	public boolean update(Employee employee) throws SQLException {
-		String sql = "update Artist set Name = ? where ArtistId = ?";
+		String sql = "update expense set StatusId = ? where employeeId = ?";
 		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setString(1, employee.getName());
+		statement.setInt(1, employee.getStatusId());
 		statement.setInt(2, employee.getId());
-		return statement.executeUpdate() == 1;
-	}
-
-	// Update & Delete, use an ID to change the right row
-	public boolean delete(int id) throws SQLException {
-		String sql = "delete from Artist where ArtistId = ?";
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, id);
 		return statement.executeUpdate() == 1;
 	}
 

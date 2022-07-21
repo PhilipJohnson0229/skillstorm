@@ -1,0 +1,11 @@
+package com.skillstorm.data;
+
+public class ReimbursementStatus {
+
+	private int status;
+	
+	public ReimbursementStatus() 
+	{
+		super();
+	}
+}

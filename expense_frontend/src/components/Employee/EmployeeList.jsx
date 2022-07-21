@@ -12,6 +12,7 @@ export const EmployeeList = () => {
     const [name, setName] = useState('');
     const reasonRef = useRef(); // Creates a reference object
     const notesRef = useRef();
+    const statusIdRef = useRef();
 
     /**
      * useRef hook:
@@ -46,7 +47,8 @@ export const EmployeeList = () => {
                     name, // implied that it's name: name
                     // Think of titleRef.current as <input />
                     reason: reasonRef.current.value,
-                    notes: notesRef.current.value
+                    notes: notesRef.current.value,
+                    //status: statusRef.current.value
                 }
             );
             console.log(data);
@@ -54,6 +56,7 @@ export const EmployeeList = () => {
             setName('');
             reasonRef.current.value = null;
             notesRef.current.value = '';
+            statusIdRef.current.value = 0;
         } catch (err) {
             console.error(err);
         }
@@ -77,34 +80,25 @@ export const EmployeeList = () => {
                         <td>Name</td>
                         <td>Reason</td>
                         <td>Notes</td>
+                        <td>StatusId</td>
                         <td>Action</td>
                         {/*when were ready to add the response code column we start here*/}
                     </tr>
                 </thead>
                 <tbody>
-                    {/* I want to dynamically render all of those devs that I received */}
-                    {/* <tr> This is the HTML way. Manual typing
-                        <td>Dan Pickles</td>
-                        <td>Senior Technical Architect</td>
-                        <td>100000</td>
-                    </tr> */}
-
                     {/* Use the built in array method, map() to create an array of JSX elements */}
                     {employees.map((emp) => {
                         // Map constructs a new array based off what we return
                         return (
                             // Always use the primary id from the database since it's unique
                             <>
-                            {/*<Employee key={emp.id} emp={emp} employees={employees} setEmployees={setEmployees} />*/}
-                           
-                            
                             <Employee key={emp.id} emp={emp} employees={employees} setEmployees={setEmployees} />
                         
                             </>
 
                         );
                     })}
-                    {/* <form> */}
+                   
                     <tr>
                             {/* In React, we should NOT use document.getElementById to access
                                 a DOM element.
@@ -117,15 +111,12 @@ export const EmployeeList = () => {
                             <td><input name="name" value={name} onChange={(event) => setName(event.target.value)} placeholder='Please enter Name'/></td>
                             <td><input name="reason" ref={reasonRef} placeholder='Please enter reason'/></td>
                             <td><input name="notes" ref={notesRef} placeholder='Please enter any notes'/></td>
-                            <td>
-                            <OverlayTrigger trigger="hover" placement="top" overlay={popover}>
-                            <Button type='submit' variant='secondary'>Create Entry</Button>
-                            </OverlayTrigger>
+                            <td  colSpan={2}>
+                                <OverlayTrigger trigger="hover" placement="top" overlay={popover}>
+                                    <Button type='submit' variant='secondary'>Create Entry</Button>
+                                </OverlayTrigger>
                             </td>
-                           
-                            
-                    </tr>
-                    {/* </form> */}
+                    </tr>  
                 </tbody>
             </Table>
         </form>

@@ -127,7 +127,7 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	//UPDATE
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		System.out.println("Calling Update");
 	}
 	
 	//DELETE

@@ -10,9 +10,13 @@ public class Employee implements Serializable{
 	private String name;
 	private String reason;
 	private String notes;
+	private int statusId;
 	
+	
+
 	public Employee() {
 		super();
+		this.statusId = 0;
 	}
 
 	public Employee(int id, String name, String reason, String notes) {
@@ -21,12 +25,16 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason = reason;
 		this.notes = notes;
+		this.statusId = 0;
 	}
 
 	public Employee(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.reason ="";
+		this.notes = "";
+		this.statusId = 0;
 	}
 	
 	public Employee(String name, String reason, String notes) {
@@ -34,6 +42,7 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason = reason;
 		this.notes = notes;
+		this.statusId = 0;
 	}
 	
 	public Employee(String name) {
@@ -41,6 +50,7 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason = "";
 		this.notes = "";
+		this.statusId = 0;
 	}
 	
 	public int getId() {
@@ -75,6 +85,13 @@ public class Employee implements Serializable{
 		this.notes = notes;
 	}
 	
+	public int getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
+	}
 	//for some reason i had an issue with the hashcode and equals method
 
 	@Override
