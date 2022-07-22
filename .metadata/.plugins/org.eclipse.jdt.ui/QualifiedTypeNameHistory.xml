@@ -45,4 +45,5 @@
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectWriter"/>
     <fullyQualifiedTypeName name="com.skillstorm.servlet.ExpenseServlet"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="com.skillstorm.data.ReimbursementStatus"/>
 </qualifiedTypeNameHistroy>

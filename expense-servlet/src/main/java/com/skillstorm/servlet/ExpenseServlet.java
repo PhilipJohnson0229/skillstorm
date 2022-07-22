@@ -75,13 +75,8 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	//POST 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("calling post method");
-		//this helps with communicating to react
-		//resp.addHeader("Access-Control-Allow-Origin","http://localhost:3000");
-		//FINAL CODE
-		//print the input from the form with the postTest param
-		//System.out.println(req.getParameter("postTest"));
-		//http GET request body will send json for this servlet to parse.  we need the line below
+		
+		
 		InputStream requestBody = req.getInputStream();
 		
 		//in order to use
@@ -89,10 +84,23 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		
 		//this takes the input stream and parses the json into a java object
 		Employee employee = objectMapper.readValue(requestBody, Employee.class); //takes inputstream and converts to object
-		System.out.println(employee.getName() + " has been created");
-		try {
-			employeeDao.create(employee);
-			System.out.println("Employees: " + employeeDao.findAll());
+		
+		
+		try {	
+			
+			switch(employee.getStatusId()) 
+			{
+			case 1:
+				employeeDao.update(employee, 1);
+				break;
+			case 2:
+				employeeDao.update(employee, 2);
+				break;
+			default:
+				employeeDao.create(employee);
+			}
+			
+			System.out.println(employee);
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -128,12 +136,15 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Calling Update");
-	}
-	
-	//DELETE
-	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		InputStream requestBody = req.getInputStream();
 		
+		//in order to use
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		//this takes the input stream and parses the json into a java object
+		Employee employee = objectMapper.readValue(requestBody, Employee.class);
+		
+		System.out.println(employee);
 	}
 	
 }

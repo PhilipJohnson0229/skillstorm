@@ -11,12 +11,14 @@ public class Employee implements Serializable{
 	private String reason;
 	private String notes;
 	private int statusId;
+	private ReimbursementStatus status;
 	
 	
 
 	public Employee() {
 		super();
-		this.statusId = 0;
+		this.status = new ReimbursementStatus();
+		this.statusId = this.status.getId();
 	}
 
 	public Employee(int id, String name, String reason, String notes) {
@@ -25,6 +27,7 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason = reason;
 		this.notes = notes;
+		this.status = new ReimbursementStatus();
 		this.statusId = 0;
 	}
 
@@ -34,15 +37,16 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason ="";
 		this.notes = "";
-		this.statusId = 0;
+		this.status = new ReimbursementStatus();
 	}
 	
-	public Employee(String name, String reason, String notes) {
+	public Employee(String name, String reason, String notes, int statusId) {
 		super();
 		this.name = name;
 		this.reason = reason;
 		this.notes = notes;
-		this.statusId = 0;
+		this.status = new ReimbursementStatus(statusId);
+		this.statusId = statusId;
 	}
 	
 	public Employee(String name) {
@@ -50,7 +54,7 @@ public class Employee implements Serializable{
 		this.name = name;
 		this.reason = "";
 		this.notes = "";
-		this.statusId = 0;
+		this.status = new ReimbursementStatus();
 	}
 	
 	public int getId() {
@@ -85,18 +89,29 @@ public class Employee implements Serializable{
 		this.notes = notes;
 	}
 	
+	
+	//for some reason i had an issue with the hashcode and equals method
+
 	public int getStatusId() {
+		this.status.setId(this.statusId);
 		return statusId;
 	}
 
-	public void setStatusId(int statusId) {
-		this.statusId = statusId;
+	public void setStatusId(int id) {
+		this.statusId = id;
 	}
-	//for some reason i had an issue with the hashcode and equals method
+	
+	public ReimbursementStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ReimbursementStatus status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", reason=" + reason + ", notes=" + notes + "]";
+		return "Employee [id=" + id + ", name=" + name + ", reason=" + reason + ", notes=" + notes + ", statusId=" + statusId +"]";
 	}
 	
 	

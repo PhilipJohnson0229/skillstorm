@@ -13,7 +13,7 @@ export const EmployeeList = () => {
     const reasonRef = useRef(); // Creates a reference object
     const notesRef = useRef();
     const statusIdRef = useRef();
-
+    
     /**
      * useRef hook:
      * 
@@ -48,7 +48,7 @@ export const EmployeeList = () => {
                     // Think of titleRef.current as <input />
                     reason: reasonRef.current.value,
                     notes: notesRef.current.value,
-                    //status: statusRef.current.value
+                   
                 }
             );
             console.log(data);
@@ -56,7 +56,7 @@ export const EmployeeList = () => {
             setName('');
             reasonRef.current.value = null;
             notesRef.current.value = '';
-            statusIdRef.current.value = 0;
+            
         } catch (err) {
             console.error(err);
         }
@@ -80,7 +80,7 @@ export const EmployeeList = () => {
                         <td>Name</td>
                         <td>Reason</td>
                         <td>Notes</td>
-                        <td>StatusId</td>
+                        <td>Status</td>
                         <td>Action</td>
                         {/*when were ready to add the response code column we start here*/}
                     </tr>
