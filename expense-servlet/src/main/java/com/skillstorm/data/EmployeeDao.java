@@ -36,11 +36,12 @@ public class EmployeeDao {
 	// CRUD
 	// Domain object - POJO/JavaBean that represents data for our app
 	public Employee create(Employee employee) throws SQLException {
-		String sql = "insert into expense(name, reason, notes, StatusId) values (?,?,?,0)";				// flag: please return my keys
+		String sql = "insert into expense(name, amount, reason, notes, StatusId) values (?,?,?,?,0)";				// flag: please return my keys
 		PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		statement.setString(1, employee.getName());
-		statement.setString(2, employee.getReason());
-		statement.setString(3, employee.getNotes());
+		statement.setDouble(2, employee.getAmount());
+		statement.setString(3, employee.getReason());
+		statement.setString(4, employee.getNotes());
 		
 		statement.executeUpdate();
 		
@@ -57,7 +58,7 @@ public class EmployeeDao {
 	public Set<Employee> findAll() throws SQLException {
 		// ResultSet
 		Set<Employee> employees = new HashSet<Employee>(); // store the artists to be returned at the end
-		String sql = "select e.employeeid, e.name, e.reason, e.notes, e.statusId, s.id, s.Status from expense e inner join reimbursementstatus s on e.statusId = s.id";
+		String sql = "select e.employeeid, e.name, e.amount, e.reason, e.notes, e.statusId, s.id, s.Status from expense e inner join reimbursementstatus s on e.statusId = s.id";
 
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
@@ -67,13 +68,16 @@ public class EmployeeDao {
 			// extracted the value from the database table
 			int id = resultSet.getInt("employeeId");
 			String name = resultSet.getString("name");
+			String amount = resultSet.getString("amount");
 			String reason = resultSet.getString("reason");
 			String notes = resultSet.getString("notes");
-			String status = resultSet.getString("status");
 			int statusId = resultSet.getInt("statusId");
+			
+			Double purchaseAmount = new Double(amount); 
 			// store it in the Java object
 			row.setId(id);
 			row.setName(name);
+			row.setAmount(purchaseAmount);
 			row.setNotes(notes);
 			row.setReason(reason);
 			row.setStatus(new ReimbursementStatus());
@@ -94,13 +98,13 @@ public class EmployeeDao {
 		statement.setInt(2, employee.getId());
 		
 		statement.executeUpdate();
-		
-		/*ResultSet rs = statement.getGeneratedKeys(); // without the flag, this throws an exception
-		rs.next();
-		int generatedId = rs.getInt(1);
-		employee.setId(generatedId);*/
 	}
 
-	
+	public boolean delete(int id) throws SQLException {
+		String sql = "DELETE FROM expense WHERE employeeId = ?";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setInt(1, id);
+		return statement.executeUpdate() == 1;
+	}
 	
 }

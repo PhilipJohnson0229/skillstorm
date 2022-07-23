@@ -105,37 +105,12 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-	
-		//redirect to another page
-		//resp.sendRedirect("response.html");
-		//req.getRequestDispatcher("response.html").forward(req, resp); // writes to the response body
-		/*
-		//lets get our cookies
-		//this will retrun an array of cookies
-		if(req.getCookies() != null) {
-			for(Cookie cookie : req.getCookies()) 
-			{
-				if(cookie.getName().equals("dan")) 
-				{
-					System.out.println(cookie.getName() + " has been stored as a cookie");
-				}
-			}
-		}
-		
-		
-		//this is how we maintain state with our API
-		//this looks for the JSESSIONID cookie
-		//so amazingly java objects are serializable going across the wire
-		req.getSession().setAttribute("addedItem", employee);
-		
-		resp.setStatus(201);*/
 	}
 	
-	//UPDATE
 	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Calling Update");
+		protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			// TODO Auto-generated method stub
+		System.out.println("Calling Delete");
 		InputStream requestBody = req.getInputStream();
 		
 		//in order to use
@@ -145,6 +120,12 @@ public class ExpenseServlet extends HttpServlet { // IS-A servlet(polymorphism)
 		Employee employee = objectMapper.readValue(requestBody, Employee.class);
 		
 		System.out.println(employee);
-	}
+		try {
+			employeeDao.delete(employee.getId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
 	
 }

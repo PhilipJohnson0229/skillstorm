@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ImageBackground, StyleSheet, Text, View} from "react-native";
 import TextShadow from '../components/TextShadow';
 import { useNavigate } from 'react-router-dom';
-import { Component } from 'react';
-import { StatusPage } from './StatusPage';
+
 
 export const Home = () => {
     const image = { uri: "https://www.seekpng.com/png/detail/789-7897839_business-meeting-3-staff-in-human-resource.png" };

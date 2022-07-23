@@ -12,7 +12,7 @@ export const EmployeeList = () => {
     const [name, setName] = useState('');
     const reasonRef = useRef(); // Creates a reference object
     const notesRef = useRef();
-    const statusIdRef = useRef();
+    const amountRef = useRef();
     
     /**
      * useRef hook:
@@ -46,9 +46,10 @@ export const EmployeeList = () => {
                 {
                     name, // implied that it's name: name
                     // Think of titleRef.current as <input />
+                    amount: amountRef.current.value,
                     reason: reasonRef.current.value,
                     notes: notesRef.current.value,
-                   
+                    
                 }
             );
             console.log(data);
@@ -56,7 +57,7 @@ export const EmployeeList = () => {
             setName('');
             reasonRef.current.value = null;
             notesRef.current.value = '';
-            
+            amountRef.current.value = 0.0;
         } catch (err) {
             console.error(err);
         }
@@ -78,6 +79,7 @@ export const EmployeeList = () => {
                 <thead>
                     <tr>
                         <td>Name</td>
+                        <td>Amount</td>
                         <td>Reason</td>
                         <td>Notes</td>
                         <td>Status</td>
@@ -109,6 +111,7 @@ export const EmployeeList = () => {
 
                             {/* This is a "controlled component". React is in charge of it */}
                             <td><input name="name" value={name} onChange={(event) => setName(event.target.value)} placeholder='Please enter Name'/></td>
+                            <td><input name="amount" ref={amountRef} placeholder='Please enter amount'/></td>
                             <td><input name="reason" ref={reasonRef} placeholder='Please enter reason'/></td>
                             <td><input name="notes" ref={notesRef} placeholder='Please enter any notes'/></td>
                             <td  colSpan={2}>

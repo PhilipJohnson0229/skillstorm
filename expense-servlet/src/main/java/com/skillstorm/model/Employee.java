@@ -8,6 +8,7 @@ public class Employee implements Serializable{
 	
 	private int id;
 	private String name;
+	private double amount;
 	private String reason;
 	private String notes;
 	private int statusId;
@@ -21,10 +22,11 @@ public class Employee implements Serializable{
 		this.statusId = this.status.getId();
 	}
 
-	public Employee(int id, String name, String reason, String notes) {
+	public Employee(int id, String name, double amount, String reason, String notes) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.amount = amount;
 		this.reason = reason;
 		this.notes = notes;
 		this.status = new ReimbursementStatus();
@@ -35,14 +37,16 @@ public class Employee implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
+		this.amount = 0.0;
 		this.reason ="";
 		this.notes = "";
 		this.status = new ReimbursementStatus();
 	}
 	
-	public Employee(String name, String reason, String notes, int statusId) {
+	public Employee(String name, double amount, String reason, String notes, int statusId) {
 		super();
 		this.name = name;
+		this.amount = amount;
 		this.reason = reason;
 		this.notes = notes;
 		this.status = new ReimbursementStatus(statusId);
@@ -52,6 +56,7 @@ public class Employee implements Serializable{
 	public Employee(String name) {
 		super();
 		this.name = name;
+		this.amount = 0.0;
 		this.reason = "";
 		this.notes = "";
 		this.status = new ReimbursementStatus();
@@ -71,6 +76,14 @@ public class Employee implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 	public String getReason() {
@@ -111,8 +124,11 @@ public class Employee implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", reason=" + reason + ", notes=" + notes + ", statusId=" + statusId +"]";
+		return "Employee [id=" + id + ", name=" + name + ", amount=" + amount + ", reason=" + reason + ", notes="
+				+ notes + ", statusId=" + statusId + ", status=" + status + "]";
 	}
+
+	
 	
 	
 }
