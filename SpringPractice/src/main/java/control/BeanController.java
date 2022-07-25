@@ -1,7 +1,19 @@
 package control;
 
+import data.TestDao;
+
 public class BeanController {
-public static void main(String[] args) {
-	System.out.println("Hello");
-}
+	//were going to ask spring to create this for us
+	private TestDao testDao;
+	
+	public void callDao() 
+	{
+		testDao.go();
+	}
+
+	public void setTestDao(TestDao testDao) {
+		this.testDao = testDao;
+	}
+
+	
 }

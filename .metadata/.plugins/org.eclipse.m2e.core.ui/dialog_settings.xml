@@ -6,6 +6,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Skillstorm\Workspace\SpringPractice"/>
 			<item value="C:\Skillstorm\Workspace"/>
 			<item value="C:\Skillstorm\Workspace\cancer-detection"/>
 		</list>
@@ -31,13 +32,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.skillstorm.expense_servlet"/>
 		</list>
 		<list key="groupId">
-			<item value="com.skillstorm"/>
 		</list>
 		<list key="artifactId">
-			<item value="expense-servlet"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -53,10 +51,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.skillstorm"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="HibernatePractice"/>
+			<item value="SpringPractice"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -76,5 +77,11 @@
 		<list key="catalogUrl">
 			<item value="https://repo1.maven.org/maven2/archetype-catalog.xml"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="667"/>
+		<item key="x" value="720"/>
+		<item key="y" value="71"/>
 	</section>
 </section>
