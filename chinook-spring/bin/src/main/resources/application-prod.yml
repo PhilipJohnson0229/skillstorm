@@ -1,0 +1,8 @@
+# in production, I use a MySQL database.. 
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/chinook
+    username: root
+    password: welcome1
+
+    

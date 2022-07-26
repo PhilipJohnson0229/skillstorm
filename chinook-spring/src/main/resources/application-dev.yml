@@ -1,0 +1,11 @@
+# in dev profile
+spring:  
+  sql:
+    init:
+      platform: h2 
+  jpa:
+    show-sql: true
+
+springdoc:
+  api-docs:
+    path: path=/api-docs

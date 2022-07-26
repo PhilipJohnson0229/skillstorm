@@ -1,0 +1,11 @@
+# default config
+server:
+  port: 8080
+
+spring:  
+  jpa:
+    # please use Pascal_Case so you don't need this:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
