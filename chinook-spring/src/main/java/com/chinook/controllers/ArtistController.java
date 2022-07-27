@@ -20,9 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chinook.beans.Artist;
 import com.chinook.data.ArtistRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/artist") // baseUrl for this controller
 @CrossOrigin(origins = "*") // Spring MVC doesn't allow CORS by default
+@Tag(description = "Artist API", name = "API Info")
 public class ArtistController {
 
 	@Autowired
@@ -30,6 +35,8 @@ public class ArtistController {
 
 	// http://localhost:8080/artist/155 - PathVariable
 	@GetMapping("/{id}")
+	@Operation(description = "Returns an artist by id, and if not found returns blank Artist", 
+		responses = {@ApiResponse(responseCode = "400", description = "Invalid input")})
 	public ResponseEntity<Artist> findById(@PathVariable int id) {
 		return ResponseEntity.ok(repository.findById(id).orElse(new Artist()));
 	}

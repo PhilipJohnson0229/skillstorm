@@ -10,3 +10,15 @@ create table Album (
 	Title VARCHAR(50),
 	ArtistId INT
 );
+
+create table Track (
+	TrackId INT auto_increment,
+	Name VARCHAR(50),
+	AlbumId INT,
+	MediaTypeId INT,
+	GenreId INT,
+	Composer VARCHAR(50),
+	Milliseconds INT,
+	Bytes INT,
+	UnitPrice DECIMAL(5,2)
+);
