@@ -2,7 +2,9 @@ package com.InventoryManagement.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.InventoryManagement.beans.Item;
 import com.InventoryManagement.data.ItemDaoImpl;
 
 
@@ -15,4 +17,6 @@ public class ItemService {
 
 	//@Autowired
 	private ItemDaoImpl repository;
+	
+	
 }

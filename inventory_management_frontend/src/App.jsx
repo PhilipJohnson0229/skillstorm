@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { NavBar } from './components/NavBar';
-import { Container, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Home } from './components/StoreInventory/Home';
 import { Items } from './components/StoreInventory/Items';
@@ -17,6 +15,9 @@ function App() {
       </div>
       <div className='nav-item'>
         <Link className='nav-item' to="/table">Items</Link>
+      </div>
+      <div className='nav-item'>
+        <Link className='nav-item' to="/">Store Locator</Link>
       </div>
     </section>
     </NavBar>

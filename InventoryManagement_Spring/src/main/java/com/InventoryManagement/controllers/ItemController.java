@@ -2,7 +2,10 @@ package com.InventoryManagement.controllers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.InventoryManagement.beans.Item;
 import com.InventoryManagement.data.ItemRepo;
 import com.InventoryManagement.service.ItemService;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 
 
 
@@ -27,7 +32,7 @@ public class ItemController {
 	@Autowired
 	private ItemRepo repo;
 	
-	//means this method will be mapped to a GET request
+	//means this method will be mapped do a GET request
 	//@ResponseBody //this tells spring not to redirect to another page just inject data into response body
 	@GetMapping("{id}")
 	public Item findById(@PathVariable int id) 
@@ -35,12 +40,14 @@ public class ItemController {
 		return repo.findById(id).get();
 	}
 	
-	@PostMapping
-	public Item saveItem(@RequestBody Item item) 
-	{
-		return repo.save(item);
-	}
 	
+	@PostMapping("/add")
+	public void addItemToDB(@RequestParam String name){
+		 Item newItem = new Item();
+		 newItem.setName(name);
+	     repo.save(newItem);
+	}
+	 
 	@GetMapping
 	@ResponseBody
 	public Iterable<Item> findAll() 
@@ -54,7 +61,7 @@ public class ItemController {
 		repo.deleteById(id);
 	}
 	
-	@PutMapping("{id}") // PUT /artist/56
+	@PutMapping("{id}") // PUT 
 	public Item update(@RequestBody Item item, @PathVariable int id) {
 		if (repo.existsById(id)) {
 			item.setId(id); // don't trust user to use your system as intended

@@ -2,6 +2,7 @@ package com.InventoryManagement;
 
 import java.sql.SQLException;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +29,7 @@ public class SpringConfig {
 		//ioc - Bean Factory
 		//this line takes all methods anotated with bean within this class and stores them in ioc container
 		//singletons are eagerly loaded
-		AbstractApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-		context.close();
+		SpringApplication.run(SpringConfig.class, args);
 		
 		
 		
