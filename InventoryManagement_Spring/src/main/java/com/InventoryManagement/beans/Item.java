@@ -21,22 +21,29 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Item{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "catFk")
+	private int catFk;
+	
+	@Column(name = "strFk")
+	private int strFk;
 	//private ApplicationContext applicationContext;
 	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item(int id, String name) {
+	public Item(int id, String name, int catFk, int strFk) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.catFk = catFk;
+		this.strFk = strFk;
 	}
 
 	public Item(String name) {
@@ -58,6 +65,27 @@ public class Item{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getCatFk() {
+		return catFk;
+	}
+
+	public void setCatFk(int catFk) {
+		this.catFk = catFk;
+	}
+
+	public int getStrFk() {
+		return strFk;
+	}
+
+	public void setStrFk(int strFk) {
+		this.strFk = strFk;
+	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", catFk=" + catFk + ", strFk=" + strFk + "]";
 	}
 	
 	

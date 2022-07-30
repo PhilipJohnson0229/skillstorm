@@ -41,18 +41,29 @@ public class ItemController {
 	}
 	
 	
+	
 	@PostMapping("/add")
-	public void addItemToDB(@RequestParam String name){
+	public void addItemToDB(@RequestParam int id, @RequestParam String name, @RequestParam int catId, @RequestParam int strId){
 		 Item newItem = new Item();
+		 newItem.setId(id);
 		 newItem.setName(name);
+		 newItem.setCatFk(catId);
+		 newItem.setStrFk(strId);
+		 
 	     repo.save(newItem);
 	}
 	 
 	@GetMapping
 	@ResponseBody
-	public Iterable<Item> findAll() 
+	public Object findAll(@RequestParam (required = false) String name) 
 	{
-		return repo.findAll();
+		if(name != null) 
+		{
+			return repo.findItemByName("%" + name + "%");
+		}else 
+		{
+			return repo.findAll();
+		} 
 	}
 	
 	@DeleteMapping
