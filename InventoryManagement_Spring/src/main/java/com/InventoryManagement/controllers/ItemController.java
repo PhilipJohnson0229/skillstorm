@@ -59,7 +59,7 @@ public class ItemController {
 	{
 		if(name != null) 
 		{
-			return repo.findItemByName("%" + name + "%");
+			return repo.findByNameLike("%" + name + "%");
 		}else 
 		{
 			return repo.findAll();

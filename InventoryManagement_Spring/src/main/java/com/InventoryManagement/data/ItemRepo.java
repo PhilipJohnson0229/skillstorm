@@ -12,7 +12,7 @@ import com.InventoryManagement.beans.Item;
 public interface ItemRepo extends JpaRepository<Item, Integer>{
 	
 	// a find by/query method
-	public List<Item> findItemByName(String name);
+	public List <Item> findByNameLike(String name);
 	//even though were trying to retrieve a single item we have to do this to return a UNIQUE result
 	//if more than one item is found then it will return an iterable hqlQuery.List()
 }
