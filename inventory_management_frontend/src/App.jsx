@@ -4,6 +4,7 @@ import { NavBar } from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Home } from './components/StoreInventory/Home';
 import { Items } from './components/StoreInventory/Items';
+import { Stores } from './components/StoreInventory/Stores';
 
 function App() {
   return (
@@ -14,16 +15,17 @@ function App() {
         <Link className='nav-item' to="/">Home</Link>
       </div>
       <div className='nav-item'>
-        <Link className='nav-item' to="/table">Items</Link>
+        <Link className='nav-item' to="/cards">Store Locator</Link>
       </div>
       <div className='nav-item'>
-        <Link className='nav-item' to="/">Store Locator</Link>
+        <Link className='nav-item' to="/table">Items</Link>
       </div>
     </section>
     </NavBar>
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/table" element={<Items/>}/>
+        <Route path="/cards" element={<Stores/>}/>
     </Routes>
     </BrowserRouter>
     

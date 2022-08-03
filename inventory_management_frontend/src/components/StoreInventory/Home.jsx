@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Table, Card} from 'react-bootstrap';
+import { Container, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 /* This is the index/Welcome page
 */
 export const Home = () => {
@@ -10,7 +9,7 @@ export const Home = () => {
         // This is how to read environment variables
         // Environment variables are good to toggle between different environments (dev, prod, test, QA)
         <>
-            <Container className="text-center" style ={{paddingTop : 30, alignContent: 'center'}}>
+            <Container className="text-center" style ={{paddingTop : 30, alignContent: 'center', backgroundColor:'lightgray'}}>
                
                     <Card bg="success" className="mb-3 text-center" style={{color:'black'}}>
                     <Card.Body>

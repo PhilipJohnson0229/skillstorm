@@ -1,13 +1,24 @@
+html
+{
+  background-color: lightgray;
+}
+
 body {
   margin: 0;
   font-family: 'Courier New';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightgray;
 }
 
 code {
   font-family: 'Courier New',
     monospace;
+}
+
+#root
+{
+  background-color: lightgray;
 }
 
 .blue {

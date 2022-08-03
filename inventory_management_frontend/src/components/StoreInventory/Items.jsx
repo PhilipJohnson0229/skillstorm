@@ -4,9 +4,7 @@ import { Container, Table, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemsMap } from './ItemsMap';
 import { useState, useEffect } from 'react';
-/* This is the webpage that will display the items table. The mapping
-of the table is done in a child component -> ItemsMap
-*/
+
 
 export const Items = () => {
 
@@ -14,7 +12,7 @@ export const Items = () => {
 
     // retrieves table
     useEffect(() => {
-        axios.get(`http://localhost:8080/`)
+        axios.get(`http://localhost:8080/item/`)
         .then((response) => {console.log(response.data) 
             setTable(response.data)})
         .catch((err) => {console.log(err)})
@@ -24,15 +22,15 @@ export const Items = () => {
     return (
     <>
     <Container className="text-center"  style={{paddingTop: 30}}>
-        <Card>
-    <Table striped bordered hover size="sm" variant='light' responsive>
+    <Card variant='info' style={{width: '100%', color:'white'}}>
+    <Table striped bordered hover size="sm" variant='info' responsive>
         <thead>
             <tr>
                 <td>ID</td>
-                <td>Category</td>
-                <td>Description</td>
+                <td>Name</td>
                 <td>Price</td>
-                <td>Store Location</td>
+                <td>Store</td>
+                <td>Category</td>
                 <td>Action</td>
             </tr>
         </thead>

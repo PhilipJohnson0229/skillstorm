@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import{Button} from 'react-bootstrap';
 /*This is the child component that maps the Items table 
   in Items.jsx and handles the button functions.
 */
@@ -47,13 +48,13 @@ export const ItemsMap = ({e, setTable}) => {
     return (
     <tr> 
         <td>{e.id}</td>
-        <td>{e.category}</td>
-        <td>{e.description}</td>
+        <td>{e.name}</td>
         <td>{e.price}</td>
-        <td>{e.storeLocation}</td>
+        <td>{e.store}</td>
+        <td>{e.category}</td>
         <td>
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <Button onClick={handleEdit} variant='secondary'>Edit</Button>
+        <Button onClick={handleDelete} variant='dark'>Delete</Button>
         </td>
     </tr>
     );
