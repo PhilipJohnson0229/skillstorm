@@ -3,6 +3,7 @@ package com.InventoryManagement.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,12 @@ import com.InventoryManagement.beans.Store;
 import com.InventoryManagement.data.ItemRepo;
 import com.InventoryManagement.data.StoreRepo;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @RequestMapping("/store/")
+@CrossOrigin(origins = "*") // Spring MVC doesn't allow CORS by default
+@Tag(description = "Artist API", name = "API Info")
 public class StoreController {
 
 	@Autowired

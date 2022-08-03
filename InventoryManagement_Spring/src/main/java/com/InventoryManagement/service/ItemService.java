@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.InventoryManagement.beans.Item;
-import com.InventoryManagement.data.ItemDaoImpl;
+
 
 
 @Service
@@ -13,10 +13,6 @@ public class ItemService {
 
 	public ItemService() {
 		System.out.println("new ItemService()");
-	}
-
-	//@Autowired
-	private ItemDaoImpl repository;
-	
+	}	
 	
 }

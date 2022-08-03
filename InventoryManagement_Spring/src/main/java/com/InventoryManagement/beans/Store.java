@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="Store")
@@ -14,6 +15,7 @@ public class Store {
 	private int storeId;
 	
 	@Column(name = "name")
+	@NotBlank //Validator inside bean as per JSR 303
 	private String name;
 	
 	@Column(name = "location")

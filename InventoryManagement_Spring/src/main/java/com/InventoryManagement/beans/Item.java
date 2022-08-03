@@ -15,6 +15,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //Hibernate implementation JPA
 
+//JSR 303 very important security standard
+//Bean validation: validation will be done inside the bean itself
+
 //this will be a stateful bean because it stores application state
 @Entity
 @Table(name="Item")
@@ -25,6 +28,7 @@ public class Item{
 	private int id;
 	
 	@Column(name = "name")
+	@NotBlank
 	private String name;
 	
 	@Column(name = "catFk")
@@ -38,9 +42,9 @@ public class Item{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Item(int id, String name, int catFk, int strFk) {
+	public Item(String name, int catFk, int strFk) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.catFk = catFk;
 		this.strFk = strFk;

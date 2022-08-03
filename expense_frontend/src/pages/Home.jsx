@@ -1,4 +1,4 @@
-import {Button, Container, Table, OverlayTrigger, Popover, Card, Image} from 'react-bootstrap';
+import {Button, Container, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ImageBackground, StyleSheet, Text, View} from "react-native";
 import TextShadow from '../components/TextShadow';

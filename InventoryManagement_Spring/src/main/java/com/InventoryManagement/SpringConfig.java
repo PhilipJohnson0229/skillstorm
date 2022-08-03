@@ -14,7 +14,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 
 import com.InventoryManagement.controllers.ItemController;
 import com.InventoryManagement.data.ItemRepo;
-import com.InventoryManagement.data.ItemDaoImpl;
+
 
 //@Import({DatabaseLayerConfig.class}) //if we wanted to load stuff manually with a ton of annotations
 //the main config file that will import other config files
