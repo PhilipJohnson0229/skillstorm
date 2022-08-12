@@ -1,0 +1,44 @@
+# in dev profile
+jwt:
+  header: Authorization
+  secret: my-very-secret-key
+  
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+spring:  
+  sql:
+    init:
+      platform: h2 
+  jpa:
+    show-sql: true
+
+cookies:
+  domain: coderscampus.com
+  domainRoot: https://assignments.coderscampus.com
+  
+logging:
+  level:
+    com:
+      chinook: DEBUG
+    org:
+      springframework: 
+        web: DEBUG
+        security: DEBUG
+
+management:
+  endpoints:
+    web: #jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+
+#springdoc:
+#  api-docs:
+#    path: path=/api-docs
